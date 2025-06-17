@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0dedb052-d096-4cff-9259-33f02213a2ca/resourceGroups/RCW/providers/Microsoft.Web/sites/WatherApi",
+    "appService.deploySubpath": "."
+}
