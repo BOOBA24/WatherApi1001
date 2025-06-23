@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - WatherApi
+name: Build and deploy Python app to Azure Web App - watherapi
 
 on:
   push:
@@ -48,9 +48,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
       contents: read #This is required for actions/checkout
@@ -68,14 +65,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D0D6CDA682454363996A26ABBC9F2B53 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_70EF50F5CC1A423996DCD472A7F13F20 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2E0A97C457EB41CCA3559B8B5B6E1101 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_ED8D76D287A5439BBDE565FBF9E64583 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_332DAFFE92A0460E8610CF1332BE9F31 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_82581E01871F4F14A3F312514EC5C02B }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'WatherApi'
+          app-name: 'watherapi'
           slot-name: 'Production'
           
